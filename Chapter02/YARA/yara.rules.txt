@@ -1,7 +1,7 @@
 rule is_a_pdf 
 {
        strings:
-              $pdf_magic = {25 50 44 46}
+              $pdf_magic = {25 50 44 46} # 특정파일이 PDF파일인지 확인하기 위해 매직넘버가 pdf의 매직넘버와 일치하는지 확인
        condition:
               $pdf_magic at 0
 }
@@ -9,11 +9,16 @@ rule is_a_pdf
 rule dummy_rule1
 {
        condition:
-              false
+              false # 모든 파일을 제외
 }
  
 rule dummy_rule2
 {
        condition:
-              true
+              true # 모든 파일을 선택
 }
+
+*실행*
+ ✘ jeong@YOO  ~/Documents/Machine-Learning-for-Cybersecurity-Cookbook/Chapter02  yara ./YARA/rule.yara ./YARA/PythonBrochure.pdf
+is_a_pdf ./YARA/PythonBrochure.pdf
+dummy_rule2 ./YARA/PythonBrochure.pdf
