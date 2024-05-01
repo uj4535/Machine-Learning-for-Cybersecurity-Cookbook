@@ -12,6 +12,10 @@
 
 ## 기술 요구사항
 ### YARA : 악성코드의 시그니쳐를 이용해서 악성 코드의 종류들을 식별하고 분류하는 목적으로 사용하는 도구
+#### YARA 규칙 예시
+##### rule my_rule_name {condition: false} -> 모든 파일을 제외
+##### rule my_rule_name {condition: true} -> 모든 샘플을 선택
+##### rule over_100kb { condition: filesiza > 100KB} -> 100KB가 넘는 모든 파일을 선택하는 것
 ### pefile: PE 파일을 분석하고 파싱하는데 필요한 라이브러리
 ### PyGithub: 파이썬 코드상에서 깃허브 관리 가능
 ### 쿠쿠 샌드박스(cuckoo sandbox): 멀웨어 자동 분석 툴
